@@ -33,6 +33,7 @@ h3 {
   justify-content: space-between;
   flex-wrap: wrap;
 }
+
 .card {
   flex: 0 0 calc(33.33% - 20px);
   max-width: calc(33.33% - 20px);
@@ -51,7 +52,7 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 15px; /* Espaciado entre el contenido multimedia y el texto */
+  margin-bottom: 15px;
 }
 
 img,
@@ -59,9 +60,8 @@ video {
   width: 100%;
   max-width: 300px;
   max-height: 300px;
-  height: auto; /* Asegura que la imagen mantenga su proporción */
-  max-width: 300px; /* Limita el tamaño máximo de la imagen */
-  border-radius: 10px; /* Opcional: esquinas redondeadas */
+  height: auto;
+  border-radius: 10px;
 }
 
 .btn-footer {
@@ -77,4 +77,26 @@ video {
   color: white;
   justify-content: center;
   width: fit-content;
+}
+
+@media (max-width: 1200px) {
+  .card {
+    flex: 0 0 calc(50% - 20px);
+    max-width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    flex: 0 0 calc(100% - 20px);
+    max-width: calc(100% - 20px);
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+
+  .cards {
+    justify-content: center;
+  }
 }
