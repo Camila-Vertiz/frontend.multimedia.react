@@ -32,10 +32,8 @@ Antes de comenzar, asegúrate de tener instalados los siguientes programas en tu
    Si tienes Git instalado, clona el repositorio del proyecto:
 
    ```bash
-   git clone <url-del-repositorio>
+   git clone <https://github.com/Camila-Vertiz/frontend.multimedia.react.git>
    ```
-
-   Reemplaza `<url-del-repositorio>` con la URL real del repositorio Git.
 
    Alternativamente, descarga el proyecto como un archivo ZIP desde el repositorio y extráelo en tu directorio deseado.
 
@@ -129,8 +127,10 @@ Los archivos generados se guardarán en la carpeta `dist/`. Puedes desplegar est
   npm install
   ```
 
+```
+
 - **Errores de TypeScript**
-  Asegúrate de que tu archivo `tsconfig.json` esté configurado correctamente y que coincida con la versión de TypeScript instalada.
+ Asegúrate de que tu archivo `tsconfig.json` esté configurado correctamente y que coincida con la versión de TypeScript instalada.
 
 ---
 
@@ -151,3 +151,4 @@ Este proyecto está licenciado bajo la Licencia MIT. Siéntete libre de usarlo y
 ## Contacto
 
 Para preguntas o soporte, contacta al mantenedor del proyecto en [camila.vrtz@gmail.com].
+```
