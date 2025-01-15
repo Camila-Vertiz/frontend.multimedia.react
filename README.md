@@ -1,30 +1,153 @@
-# React + TypeScript + Vite
+# Proyecto Frontend Multimedia - React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es una aplicación frontend enfocada en multimedia, construida utilizando React, estilizada con CSS y utilizando Vite como servidor de desarrollo. Sigue esta guía para configurar y ejecutar el proyecto en tu computadora desde cero.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Prerrequisitos
 
-## Expanding the ESLint configuration
+Antes de comenzar, asegúrate de tener instalados los siguientes programas en tu sistema:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. **Node.js** (v18 o superior)
 
-- Configure the top-level `parserOptions` property like this:
+   - Descarga e instala desde el [sitio oficial de Node.js](https://nodejs.org/).
+   - Verifica la instalación:
+     ```bash
+     node -v
+     npm -v
+     ```
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+2. **Git** (opcional, para control de versiones)
+   - Descarga e instala desde el [sitio oficial de Git](https://git-scm.com/).
+   - Verifica la instalación:
+     ```bash
+     git --version
+     ```
+
+---
+
+## Pasos de Instalación
+
+1. **Clonar el Repositorio**
+   Si tienes Git instalado, clona el repositorio del proyecto:
+
+   ```bash
+   git clone <url-del-repositorio>
+   ```
+
+   Reemplaza `<url-del-repositorio>` con la URL real del repositorio Git.
+
+   Alternativamente, descarga el proyecto como un archivo ZIP desde el repositorio y extráelo en tu directorio deseado.
+
+2. **Navegar al Directorio del Proyecto**
+
+   ```bash
+   cd frontend.multimedia.react
+   ```
+
+3. **Instalar Dependencias**
+   Ejecuta el siguiente comando para instalar los paquetes necesarios:
+   ```bash
+   npm install
+   ```
+   Este comando leerá el archivo `package.json` e instalará todas las dependencias necesarias.
+
+---
+
+## Estructura del Proyecto
+
+Aquí tienes una breve descripción de la estructura del proyecto:
+
+- `src/`
+
+  - `assets/`: Contiene recursos estáticos (por ejemplo, imágenes, fuentes, etc.).
+  - `components/`: Contiene los componentes de React organizados en carpetas:
+    - `Grid/`
+      - `Grid.tsx`: Lógica y estructura del componente.
+      - `Grid.css`: Estilos para el componente Grid.
+    - `SearchBar/`
+      - `SearchBar.tsx`: Lógica y estructura del componente.
+      - `SearchBar.css`: Estilos para el componente SearchBar.
+  - `App.tsx`: Archivo principal de la aplicación.
+  - `index.css`: Estilos globales.
+  - `main.tsx`: Punto de entrada de la aplicación.
+
+- Archivos de configuración:
+  - `.eslintrc.cjs`: Configuración de ESLint.
+  - `tsconfig.json`: Configuración de TypeScript.
+  - `vite.config.ts`: Configuración del servidor de desarrollo Vite.
+
+---
+
+## Ejecutar la Aplicación
+
+1. **Iniciar el Servidor de Desarrollo**
+   Usa el siguiente comando para iniciar el servidor de desarrollo de Vite:
+
+   ```bash
+   npm run dev
+   ```
+
+   El servidor se iniciará y proporcionará una URL de desarrollo local, típicamente `http://localhost:5173/`.
+
+2. **Abrir la Aplicación**
+   Abre tu navegador web y navega a la URL proporcionada (por ejemplo, `http://localhost:5173/`).
+
+---
+
+## Crear una Build para Producción
+
+Para crear una versión lista para producción de la aplicación, ejecuta:
+
+```bash
+npm run build
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Los archivos generados se guardarán en la carpeta `dist/`. Puedes desplegar estos archivos en cualquier proveedor de hosting estático (por ejemplo, Netlify, Vercel, AWS S3, etc.).
+
+---
+
+## Pruebas de la Aplicación
+
+(Actualmente, este proyecto no incluye configuraciones de pruebas. Agrega tu biblioteca de pruebas preferida, como Jest o React Testing Library, según sea necesario.)
+
+---
+
+## Solución de Problemas
+
+- **Puerto ya en uso**
+  Si el servidor de desarrollo no inicia debido a un conflicto de puertos, especifica un puerto diferente en el archivo `vite.config.ts` o usa:
+
+  ```bash
+  npm run dev -- --port=<nuevo-puerto>
+  ```
+
+- **Dependencias faltantes**
+  Si encuentras errores relacionados con paquetes faltantes, vuelve a ejecutar:
+
+  ```bash
+  npm install
+  ```
+
+- **Errores de TypeScript**
+  Asegúrate de que tu archivo `tsconfig.json` esté configurado correctamente y que coincida con la versión de TypeScript instalada.
+
+---
+
+## Mejoras Futuras
+
+- Agregar pruebas unitarias e integrales.
+- Implementar diseño responsivo para un mejor soporte móvil.
+- Optimizar el rendimiento para builds de producción.
+
+---
+
+## Licencia
+
+Este proyecto está licenciado bajo la Licencia MIT. Siéntete libre de usarlo y modificarlo según tus necesidades.
+
+---
+
+## Contacto
+
+Para preguntas o soporte, contacta al mantenedor del proyecto en [camila.vrtz@gmail.com].

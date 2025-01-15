@@ -81,7 +81,7 @@ const Grid: React.FC<GridProps> = ({ data, loading, onSort }) => {
     <div className="body">
       <section>
         <div className="container">
-          <h1>Resultados</h1>
+          <h1>Nasa</h1>
           {data.length > 0 && (
             <button
               onClick={handleSort}
@@ -103,6 +103,8 @@ const Grid: React.FC<GridProps> = ({ data, loading, onSort }) => {
 
               return (
                 <div key={index} className="card">
+                  <h3>{title}</h3>
+                  <br />
                   <div className="media-content">
                     {media_type === "video" && videoLinks[index] ? (
                       <video controls>
@@ -122,7 +124,6 @@ const Grid: React.FC<GridProps> = ({ data, loading, onSort }) => {
                   </div>
                   <label>Tipo: {media_type}</label>
                   <br />
-                  <h3>{title}</h3>
                   <p>{description_508 || description}</p>
                   <br />
                   <div
