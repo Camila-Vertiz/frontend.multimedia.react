@@ -82,13 +82,15 @@ const Grid: React.FC<GridProps> = ({ data, loading, onSort }) => {
       <section>
         <div className="container">
           <h1>Resultados</h1>
-          <button
-            onClick={handleSort}
-            className="btn-header"
-            style={{ display: "inline-block", marginBottom: "50px" }}
-          >
-            Ordenar {sortOrder === "asc" ? "(Ascendente)" : "(Descendente)"}
-          </button>
+          {data.length > 0 && (
+            <button
+              onClick={handleSort}
+              className="btn-header"
+              style={{ display: "inline-block", marginBottom: "50px" }}
+            >
+              Ordenar {sortOrder === "asc" ? "(Ascendente)" : "(Descendente)"}
+            </button>
+          )}
           <div className="cards">
             {data.map((card, index) => {
               const cardData = card.data && card.data[0];
