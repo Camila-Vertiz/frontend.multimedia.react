@@ -17,12 +17,13 @@ interface DataItem {
 interface GridProps {
   data: DataItem[];
   loading: boolean;
-  onSort: (field: keyof DataItem["data"][0]) => void;
+  onSort: (field: keyof DataItem["data"][0], order: "asc" | "desc") => void;
 }
 
 const Grid: React.FC<GridProps> = ({ data, loading, onSort }) => {
   const [videoLinks, setVideoLinks] = useState<{ [key: number]: string }>({});
   const [audioLinks, setAudioLinks] = useState<{ [key: number]: string }>({});
+  const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
 
   useEffect(() => {
     const fetchMediaLinks = async () => {
@@ -32,7 +33,6 @@ const Grid: React.FC<GridProps> = ({ data, loading, onSort }) => {
       for (let i = 0; i < data.length; i++) {
         const card = data[i];
 
-        // Verificar y obtener el enlace del video
         if (card.data && card.data[0]?.media_type === "video") {
           try {
             const response = await fetch(encodeURI(card.href));
@@ -46,7 +46,6 @@ const Grid: React.FC<GridProps> = ({ data, loading, onSort }) => {
           }
         }
 
-        // Verificar y obtener el enlace de audio MP3
         if (card.data && card.data[0]?.media_type === "audio") {
           try {
             const response = await fetch(encodeURI(card.href));
@@ -72,16 +71,29 @@ const Grid: React.FC<GridProps> = ({ data, loading, onSort }) => {
     return <div>Loading...</div>;
   }
 
+  const handleSort = () => {
+    const newSortOrder = sortOrder === "asc" ? "desc" : "asc";
+    setSortOrder(newSortOrder);
+    onSort("title", newSortOrder); // Alternar entre ascendente y descendente
+  };
+
   return (
     <div className="body">
       <section>
         <div className="container">
+          <h1>Resultados</h1>
+          <button
+            onClick={handleSort}
+            className="btn-header"
+            style={{ display: "inline-block", marginBottom: "50px" }}
+          >
+            Ordenar {sortOrder === "asc" ? "(Ascendente)" : "(Descendente)"}
+          </button>
           <div className="cards">
             {data.map((card, index) => {
-              // Validar que 'card.data' y 'card.data[0]' estén definidos
               const cardData = card.data && card.data[0];
               if (!cardData) {
-                return null; // Si no hay datos, no renderizar el elemento
+                return null;
               }
 
               const { title, description, description_508, media_type } =
